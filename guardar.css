@@ -1,0 +1,47 @@
+let carrito = [];
+
+function agregarAlCarrito(nombre, precio) {
+    const producto = { nombre, precio, cantidad: 1 };
+    carrito.push(producto);
+    actualizarCarrito();
+}
+
+function actualizarCarrito() {
+    const carritoBody = document.getElementById('carrito-body');
+    carritoBody.innerHTML = '';
+
+    let total = 0;
+
+    carrito.forEach(producto => {
+        const { nombre, precio, cantidad } = producto;
+        const totalProducto = precio * cantidad;
+        total + = totalProducto;
+
+        const fila = document.createElement('tr');
+        fila.innerHTML = `
+            <td>${nombre}</td>
+            <td>$${precio.toFixed(2)}</td>
+            <td>${cantidad}</td>
+            <td>$${totalProducto.toFixed(2)}</td>
+        `;
+
+        carritoBody.appendChild(fila);
+    });
+
+    document.getElementById('total').innerText = `$${total.toFixed(2)}`;
+
+    const carritoLink = document.querySelector('nav ul li:nth-child(3) a');
+    carritoLink.innerText = `Carrito (${carrito.length})`;
+
+    mostrarCarrito();
+}
+
+function mostrarCarrito() {
+    const carritoSection = document.getElementById('carrito');
+    carritoSection.style.display = 'block';
+}
+
+function limpiarCarrito() {
+    carrito = [];
+    actualizarCarrito();
+}

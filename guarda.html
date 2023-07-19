@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrito de Productos</title>
+    <link rel="stylesheet" type="text/css" href="guarda.css">
+</head>
+<body>
+    <header>
+        <h1>Carrito de Productos</h1>
+        <nav>
+            <ul>
+                <li><a href="tienda de mascotas.html">Inicio</a></li>
+                <li><a href="adopcion.html">Mascotas Disponibles</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="#" onclick="mostrarCarrito()">Carrito ()</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="productos">
+        <h2>Productos Disponibles</h2>
+        <div class="producto">
+            <h3>Producto 1</h3>
+            <p>Precio: $10.00</p>
+            <button onclick="agregarAlCarrito('Producto 1', 10.00)"><a href="carrito.html">Agregar al Carrito</a></button>
+        </div>
+
+        <div class="producto">
+            <h3>Producto 2</h3>
+            <p>Precio: $15.00</p>
+            <button onclick="agregarAlCarrito('Producto 2', 15.00)">Agregar al Carrito</button>
+        </div>
+    </section>
+
+    <section id="carrito" style="display: none;">
+        <h2>Carrito de Compras</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="carrito-body">
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Total:</td>
+                    <td id="total">0.00</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="botones">
+            <button onclick="limpiarCarrito()">Limpiar Carrito</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>Carrito de Productos - Todos los derechos reservados &copy; 2023</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
